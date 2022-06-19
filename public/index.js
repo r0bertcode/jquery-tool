@@ -22,23 +22,23 @@ $(document).ready(function () {
         this.$updateTemplateBtn = $('<button>Update Template</button>').addClass('btnPanelBtn');
 
         var app = this;
-        this.$createPkBtn.click(app, function (event) {
+        this.$createPkBtn.click(function (event) {
             app.renderView('createPk');
         });
 
-        this.$updatePkBtn.click(app, function () {
+        this.$updatePkBtn.click(function () {
             app.renderView('updatePk');
         });
 
-        this.$addAttributesBtn.click(app, function () {
+        this.$addAttributesBtn.click(function () {
             app.renderView('addAttribs');
         });
 
-        this.$updateAttribsBtn.click(app, function () {
+        this.$updateAttribsBtn.click(function () {
             app.renderView('updateAttribs');
         });
 
-        this.$updateTemplateBtn.click(app, function () {
+        this.$updateTemplateBtn.click(function () {
             app.renderView('updateTemplate');
         });
 
@@ -62,15 +62,30 @@ $(document).ready(function () {
         this.$toPkInput = $('<input type="text" />').addClass('mainInput');
         this.$fromPkLabel = $('<label>Clone From: </label>').addClass('mainLabel');
         this.$fromPkInput = $('<input type="text" />').addClass('mainInput');
-        this.$createPkBtn = $('<button>Create Product Kind</button>').addClass('mainButton');
+        this.$createPkBtn = $('<button>Create Product Kind</button>').addClass('createPkButton');
         this.$messageLabel = $('<label></label>').addClass('messageLabel');
         this.$contentBox = $('<div></div>').addClass('createPkContent');
+        this.$fromBox = $('<div></div>').addClass('inputBoxMain');
+        this.$toBox = $('<div></div>').addClass('inputBoxMain');
+        this.$inputContainer = $('<div></div>').addClass('inputContainer');
 
-        this.$contentBox.append([
-            this.$toPkLabel,
-            this.$toPkInput,
+        this.$fromBox.append([
             this.$fromPkLabel,
             this.$fromPkInput,
+        ]);
+
+        this.$toBox.append([
+            this.$toPkLabel,
+            this.$toPkInput,
+        ]);
+
+        this.$inputContainer.append([
+            this.$toBox,
+            this.$fromBox,
+        ]);
+
+        this.$contentBox.append([
+            this.$inputContainer,
             this.$createPkBtn,
             this.$messageLabel,
         ]);
